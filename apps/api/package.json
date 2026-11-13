@@ -1,0 +1,38 @@
+{
+  "name": "@nova/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "start": "tsx src/index.ts",
+    "worker": "tsx src/worker.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.68.0",
+    "@nova/shared": "*",
+    "@supabase/supabase-js": "^2.80.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "exceljs": "^4.4.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "luxon": "^3.7.2",
+    "mammoth": "^1.11.0",
+    "multer": "^2.0.2",
+    "pino": "^10.1.0",
+    "tsx": "^4.23.15",
+    "yauzl": "^3.4.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/luxon": "^3.7.1",
+    "@types/multer": "^2.0.0",
+    "@types/yauzl": "^3.4.0"
+  }
+}

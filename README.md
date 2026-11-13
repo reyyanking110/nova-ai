@@ -1,138 +1,339 @@
-# NOVA AI
+# ✦ NOVA AI
 
-A Claude-powered WhatsApp assistant with private owner mode, business support, persistent tools and reminders, and a charcoal/green administration dashboard.
+<p align="center">
 
-**Status: implemented application with local verification; not production-certified.** No external service has been connected or deployed. Real integrations require your accounts, credentials, approvals and live acceptance tests. The no-credentials preview intentionally shows empty states and setup guidance, not sample analytics.
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=26&duration=3000&pause=900&color=39D98A&center=true&vCenter=true&width=650&lines=Your+AI.+Your+WhatsApp.;One+Assistant.+Two+Worlds.;Personal+Intelligence+%2B+Business+Automation." alt="NOVA AI animated introduction" />
 
-## Stack and layout
+</p>
 
-- `apps/api/src`: Node 22+, Express 5, TypeScript, Anthropic SDK, Supabase SDK, Zod, Pino.
-  - `app.ts`: authenticated/validated dashboard routes, raw signed Meta webhooks.
-  - `agent.ts`, `claude.ts`, `tools.ts`, `memory.ts`: bounded reasoning, explicit tool registry, context and summaries.
-  - `whatsapp.ts`, `media.ts`: official transport, protected downloads, STT/TTS, vision/PDF and Office extraction.
-  - `processing.ts`, `worker.ts`, `scheduling.ts`: persistent work, identity routing, retries and timezone-aware reminders.
-- `apps/web/src`: React 19, Vite, Tailwind 4, responsive dashboard components.
-- `packages/shared/src`: shared Zod resources, modes and tool policy definitions.
-- `supabase/migrations/001_nova.sql`: database, constraints, RLS, private storage and transaction functions.
-- `apps/api/test`: executable local tests; `scripts/*browser*`: Linux Chromium smoke checks.
-- `DEVELOPMENT_STATUS.md`, `VERIFICATION_REPORT.md`: phase ledger, evidence, blockers and remaining hardening.
+<p align="center">
+  **A Claude-powered WhatsApp AI Agent**
+  <br />
+  Personal Intelligence · Business Support · Persistent Memory · Smart Automation
+</p>
 
-## 1. Local setup
+<p align="center">
+  <img src="https://img.shields.io/badge/AI-Claude-39D98A?style=for-the-badge&logo=anthropic&logoColor=white" />
+  <img src="https://img.shields.io/badge/Platform-WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
+  <img src="https://img.shields.io/badge/Backend-Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+  <img src="https://img.shields.io/badge/Database-Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" />
+</p>
 
-```sh
+<p align="center">
+  <img src="https://img.shields.io/badge/TypeScript-Strict-3178C6?style=flat-square&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black" />
+  <img src="https://img.shields.io/badge/Vite-Powered-646CFF?style=flat-square&logo=vite&logoColor=white" />
+  <img src="https://img.shields.io/badge/Deployment-Railway-ready-8B5CF6?style=flat-square&logo=railway&logoColor=white" />
+</p>
+
+---
+
+## ◈ The Vision
+
+NOVA AI is more than a conventional chatbot.
+
+It is an intelligent WhatsApp assistant designed to combine personal productivity and business support through one AI-powered platform.
+
+Powered by Anthropic Claude, NOVA understands conversations, maintains persistent context, processes documents, manages tasks and schedules reminders.
+
+**One AI. Two operating modes. A connected experience.**
+
+<details>
+<summary><strong>Explore NOVA AI's capabilities</strong></summary>
+
+- Natural conversations in English, Urdu and Roman Urdu.
+- Persistent, user-controlled memory.
+- Personal and business conversation isolation.
+- AI-powered task and note management.
+- Intelligent reminders and scheduling.
+- Voice, image and document understanding.
+- Secure WhatsApp messaging.
+- Web-based administration dashboard.
+
+</details>
+
+## ◈ Core Capabilities
+
+<table>
+<tr>
+<td width="50%">
+
+### 🧠 AI Intelligence
+
+- Claude-powered reasoning
+- Context-aware conversations
+- Conversation summaries
+- Persistent memory
+- Structured tool calling
+
+</td>
+<td width="50%">
+
+### 💬 WhatsApp Integration
+
+- Official Cloud API
+- Incoming messages
+- Outgoing replies
+- Media processing
+- Delivery tracking
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### ⚡ Productivity
+
+- Task management
+- Notes and memory
+- One-time reminders
+- Recurring schedules
+- Background job processing
+
+</td>
+<td width="50%">
+
+### 📁 Multimodal Understanding
+
+- Image analysis
+- PDF understanding
+- DOCX extraction
+- XLSX extraction
+- Voice transcription
+- Optional voice responses
+
+</td>
+</tr>
+</table>
+
+## ◈ Two Intelligent Modes
+
+### Personal Mode
+
+A private assistant for the verified owner.
+
+- Personal conversations
+- Private long-term memory
+- Notes and tasks
+- Personal reminders
+- Private document management
+- Owner-authorized actions
+
+### Business Mode
+
+An intelligent assistant for customer interactions.
+
+- Automated customer support
+- Business FAQs
+- Business information retrieval
+- Customer contact collection
+- Document-based assistance
+- Business conversation management
+
+> **Privacy by design:** Personal and business contexts are separated. Unknown WhatsApp senders cannot access private owner information.
+
+## ◈ System Architecture
+
+```mermaid
+flowchart TD
+    A["WhatsApp User"] --> B["Meta WhatsApp Cloud API"]
+    B --> C["NOVA API · Express + TypeScript"]
+    C --> D["Identity & Mode Routing"]
+    D --> E["AI Agent Orchestrator"]
+    E --> F["Anthropic Claude"]
+    E --> G["Controlled Tool Registry"]
+    E --> H["Memory & Context"]
+    G --> I["Tasks & Reminders"]
+    H --> J["Supabase PostgreSQL"]
+    I --> J
+    C --> K["Media Processing"]
+    K --> L["Supabase Storage"]
+    J --> M["Background Worker"]
+    C --> N["React Admin Dashboard"]
+```
+
+## ◈ Technology Stack
+
+| Layer | Technology |
+|---|---|
+| AI Engine | Anthropic Claude |
+| Backend | Node.js, Express 5 |
+| Language | TypeScript |
+| Frontend | React 19, Vite |
+| Styling | Tailwind CSS |
+| Database | Supabase PostgreSQL |
+| Storage | Supabase Storage |
+| Validation | Zod |
+| Logging | Pino |
+| Messaging | Official WhatsApp Cloud API |
+| Deployment | Railway |
+
+## ◈ Project Structure
+
+```text
+NOVA-AI/
+│
+├── apps/
+│   ├── api/
+│   │   ├── src/
+│   │   │   ├── agent/
+│   │   │   ├── integrations/
+│   │   │   ├── memory/
+│   │   │   ├── media/
+│   │   │   ├── tools/
+│   │   │   ├── scheduler/
+│   │   │   ├── queue/
+│   │   │   └── services/
+│   │   └── test/
+│   │
+│   └── web/
+│       └── src/
+│           ├── components/
+│           ├── pages/
+│           ├── layouts/
+│           └── services/
+│
+├── packages/
+│   └── shared/
+│
+├── supabase/
+│   └── migrations/
+│
+├── scripts/
+├── Dockerfile
+├── README.md
+├── DEVELOPMENT_STATUS.md
+└── VERIFICATION_REPORT.md
+```
+
+## ◈ Getting Started
+
+### Requirements
+
+- Node.js 22+
+- npm
+- Supabase project
+- Anthropic API account
+
+### 1. Clone the repository
+
+```bash
+git clone YOUR_REPOSITORY_URL
+cd nova-ai
+```
+
+### 2. Install dependencies
+
+```bash
 npm ci
+```
+
+### 3. Configure environment
+
+```bash
 cp .env.example .env
-# Edit .env locally. Never commit it.
+```
+
+Open `.env` and configure your credentials locally.
+
+Never commit `.env` or expose private API keys.
+
+### 4. Configure Supabase
+
+1. Create a Supabase project.
+2. Open the SQL Editor.
+3. Execute `supabase/migrations/001_nova.sql`.
+4. Configure the required environment variables.
+
+```env
+SUPABASE_URL=
+SUPABASE_SERVICE_ROLE_KEY=
+```
+
+The service-role key must remain server-side.
+
+### 5. Configure Claude
+
+Create an API key through the Anthropic Console.
+
+```env
+ANTHROPIC_API_KEY=
+CLAUDE_MODEL=claude-sonnet-4-5
+```
+
+The model identifier is configurable and must be available to your Anthropic account.
+
+### 6. Start NOVA AI
+
+```bash
 npm run dev
 ```
 
-API: port 3001. Web: port 5173. Vite proxies `/api` to the server; browser code never calls a localhost backend. Both accept the Arena preview environment. Environment files are loaded from the **repository root**. Frontend `VITE_*` values are public build-time settings; restart Vite/rebuild after changes.
+Default development endpoints:
 
-Without credentials you can browse the setup-mode dashboard. Data writes explicitly fail with setup guidance. There is no mock persistence and no authentication bypass on the API.
+| Service | Address |
+|---|---|
+| API | http://localhost:3001 |
+| Dashboard | http://localhost:5173 |
+| Health | http://localhost:3001/health |
 
-For real persistence:
+Start the background worker separately:
 
-1. Create your own Supabase project. Do not use a shared/public project for private memory.
-2. Apply `supabase/migrations/001_nova.sql` through the Supabase SQL editor, or the Supabase CLI (`supabase link` and `supabase db push` after configuring a CLI project). The migration targets a fresh Supabase project with `auth` and `storage` schemas and standard roles. Run it once; use new forward migrations for future changes, not a rerun of this initial schema.
-3. Set server `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`; set web `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`. The anon key is public by design. **Never put the service-role key in a `VITE_*` variable.** `SUPABASE_ANON_KEY` is reserved for operator scripts and is not needed by the server.
-4. Disable public signup in Supabase Auth for a private deployment. Create an email/password user through Supabase Auth admin UI. The database trigger creates its owner profile and AI settings. Each Auth user is a separate tenant; there is no shared team membership implementation.
-5. Sign in to the dashboard. To give an account read-only access to its own tenant, an administrator may change `profiles.role` to `viewer` using the SQL editor. Role changes are not exposed through the browser.
-6. Start the worker in a second terminal:
-
-```sh
+```bash
 npm run worker
 ```
 
-Use **one worker instance** initially. It claims one job at a time so conversation processing remains ordered. API and worker must use the same database and provider environment. Running multiple workers requires per-conversation serialization before production use.
+## ◈ WhatsApp Configuration
 
-## 2. Claude
+NOVA AI uses the official Meta WhatsApp Cloud API.
 
-Set `ANTHROPIC_API_KEY`; optionally set `CLAUDE_MODEL` (default `claude-sonnet-4-5`, subject to account access). The official SDK uses bounded timeouts/retries. The reasoning loop permits at most five tool rounds per message, 1,600 output tokens per round, and 24 recent messages. Approved memories and a conversation-specific summary supply longer context. Summaries and document questions also produce usage records.
+Required environment variables:
 
-English, Urdu and Roman Urdu instructions are included; actual linguistic quality and model availability must be evaluated with your account. Streaming is available through the owner-only web conversation playground; WhatsApp receives complete replies, not token streaming. Optional voice replies supplement text only when TTS is configured. No provider-generated response is fabricated when the key is missing.
+```env
+WHATSAPP_ACCESS_TOKEN=
+WHATSAPP_PHONE_NUMBER_ID=
+WHATSAPP_VERIFY_TOKEN=
+META_APP_SECRET=
+WHATSAPP_API_VERSION=v23.0
+```
 
-## 3. Official WhatsApp Cloud API
+Configure your Meta webhook:
 
-1. Create/configure your Meta app and WhatsApp Business account yourself. Obtain a suitably scoped production token and phone number ID. Test recipient restrictions apply to Meta test numbers.
-2. Set `WHATSAPP_ACCESS_TOKEN`, `META_APP_SECRET`, `WHATSAPP_VERIFY_TOKEN`, and the supported `WHATSAPP_API_VERSION` (default `v23.0`; verify availability for your account).
-3. In **Business Profiles**, enter your business description and Meta **phone number ID**, not the displayed phone number. This initial version supports one business profile/WhatsApp endpoint per tenant.
-4. Publish an HTTPS API endpoint only after authorization. Register `https://your-domain/api/webhooks/whatsapp`, use the configured verify token and subscribe to `messages` events.
-5. Inbound raw bytes are HMAC-verified before parsing. Receipt and enqueue are one database transaction. Only then is HTTP 200 returned. Meta event IDs prevent duplicate inbound jobs.
-6. Keep the worker running. It stores text, analyzes attachments, invokes Claude, queues the reply and tracks signed delivery status events.
+```text
+https://YOUR_DOMAIN/api/webhooks/whatsapp
+```
 
-### Verified owner vs business customers
+Subscribe to the `messages` webhook event.
 
-Every unknown sender is a **business customer**. Sender prompts cannot change identity/mode. To activate personal mode:
+**Important:** Meta account configuration, production access tokens, webhook approval and message templates must be configured by the account owner.
 
-- Send a WhatsApp message from your intended owner number to your connected business number.
-- Open **Account Settings**, enter the sender in E.164 (`+923001234567`), request the code and enter the six-digit code delivered to that WhatsApp number.
-- Codes expire after ten minutes and lock after five failed attempts. Sending codes is rate-limited. Direct owner-number assignment via profile APIs is forbidden.
-- Future messages from the verified number use personal history; the pre-verification business history remains separate. Replacing the number does not expose prior private history to its old owner.
+### WhatsApp Service Window
 
-Personal contacts must match the verified number at the database layer. Personal reminders and queued outbound messages recheck the current owner number before sending. Customers have no database/login credentials and cannot access dashboard APIs. Business memory contains only owner-approved business facts; customer conversations cannot create personal memory.
+Free-form outgoing messages are subject to WhatsApp's 24-hour customer-service window. Approved templates are required for applicable business-initiated messages outside that window.
 
-### Service window and reminders
+## ◈ Security Architecture
 
-Free-form outgoing messages/files require an inbound message within 24 hours. For a reminder outside that window, set a **Meta-approved template** in Business Profiles and its language code. This implementation expects one body parameter containing the reminder title and no extra template components. Register a matching template and obtain Meta approval yourself. It does not create/approve templates or silently bypass the policy.
+Security is a core part of NOVA AI.
 
-Reminders have IANA timezones and one-time/daily/weekly recurrence. Daily/weekly schedules preserve local wall-clock time over DST; missed intervals advance to the next future occurrence. Due jobs persist in PostgreSQL. Retries back off exponentially up to five attempts; ten-minute stale leases are recoverable. One-time reminder state goes from `scheduled` to `sent` on API acceptance, then `delivered` on Meta's delivery event. Recurring reminders stay scheduled; each delivery is visible in Conversations.
+- Verified owner identity.
+- Personal/business data isolation.
+- Supabase Row Level Security.
+- Server-side service-role credentials.
+- Webhook HMAC signature verification.
+- Zod input validation.
+- Rate limiting.
+- Secure media downloads.
+- Private document storage.
+- Explicit confirmation for consequential AI actions.
+- Audit logs and job tracking.
 
-**Delivery semantics:** inbound deduplication is transactional. Outbound delivery is **at least once**, not exactly once: if Meta accepts a send and the worker crashes before recording it, retrying may duplicate it. Inspect failed jobs before clicking Retry. Matching tool calls within an inbound request are deduplicated; uncertain in-progress executions are not blindly replayed. This is not semantic exactly-once execution if a model produces different arguments on a retry. Transport failures are visible in Activity Logs → Jobs. Final inbound processing failures queue an explanatory text if the service window is still open.
+NOVA does not provide Claude unrestricted shell access, arbitrary SQL execution or unrestricted external actions.
 
-## 4. Media, speech and documents
+## ◈ Verification
 
-- Supported: JPEG/PNG/WebP, PDF, DOCX, XLSX, OGG/MP3/M4A/WAV/WebM audio; 10 MB maximum.
-- MIME/magic checks, restricted Meta download hosts, no redirects, stream byte limits, encrypted/oversized ZIP rejection and actual decompressed Office limits.
-- All files live in the private `nova-private` bucket. Dashboard authorization precedes short-lived signed downloads.
-- Claude receives image and PDF blocks; Mammoth extracts DOCX text; ExcelJS extracts XLSX cells. Office text is capped at 50,000 characters; cell output is capped. PDF page/token limits remain provider-enforced. There is no local OCR/PDF text search index or vector database.
-- In **Documents**, upload, ask for summaries/answers, download, approve sharing, revoke approval or delete. Approval is separate from storage: files are private by default. Each AI-triggered send still requires explicit confirmation and matching mode.
-- To transcribe, configure HTTPS `STT_URL`, `STT_API_KEY`, `STT_MODEL` using an **OpenAI-compatible multipart transcription API** returning `{ "text": "..." }`.
-- To speak replies, configure HTTPS `TTS_URL`, `TTS_API_KEY`, `TTS_MODEL`, `TTS_VOICE`. API must accept OpenAI-style JSON speech requests and return MP3 bytes. Then enable voice replies in AI Settings. NOVA uploads generated audio to the official Meta media endpoint.
-- Transcription language support is provider-dependent. Do not assert Urdu support until tested with your chosen service. Provider URLs are trusted operator environment, never AI/user-supplied URLs.
+Run the following commands:
 
-Before handling adversarial public uploads in production, add antivirus scanning and isolate Office parsing in a memory/CPU-constrained process. Existing size/ZIP limits reduce risk but are not a full content-disarm or malware-scanning system.
-
-## 5. Agent tool safety
-
-The registry exposes create/update/complete/delete task, save/search notes, propose memory, create/cancel reminders, search FAQs, retrieve business info, send approved files, and generate scoped summaries. No arbitrary SQL, shell or open URL execution exists.
-
-- All tool inputs pass shared Zod validation; enabled policies are checked before execution and again at confirmation.
-- Deleting a task, cancelling a reminder, approving a memory, and sending a file require `CONFIRM <execution UUID>` as the **entire human message**. Approvals expire in ten minutes, are atomically claimed once, and are bound to user, mode and conversation.
-- Confirmation instructions are returned directly to the user, not entrusted to another model generation.
-- Business defaults are read-only FAQs/business info/conversation summary. Personal task/note/memory/reminder tools are always denied to customers even if an administrator tries to enable them.
-- Business contact name/number is collected on inbound messages. Full CRM lead qualification/pipelines and marketing automations are not included.
-
-## 6. Dashboard and API
-
-All fourteen pages use real API data: Overview; Conversations; Contacts; AI Settings; Memory (and Notes); Tasks; Reminders; Documents; Business Profiles (and FAQs); Tool Permissions; Usage and Costs; Activity Logs (including jobs/executions); Integrations; Account Settings.
-
-Tables paginate in 50-record pages. Search filters the loaded page, as labeled. Inbox shows the latest 50 messages and refreshes every ten seconds. Workspace modes scope supported resources; global settings have no misleading mode filter. Usage graphs aggregate real records; cost estimates use **your entered USD/million-token rates**, stored in your browser. They are not invoices and omit caching, Meta fees, taxes and infrastructure.
-
-Important endpoints (all `/api` except health):
-
-| Endpoint                                            | Behavior                                          |
-| --------------------------------------------------- | ------------------------------------------------- |
-| `GET /health`                                       | Public process liveness, not external readiness   |
-| `GET /api/setup`                                    | Public non-secret auth setup state                |
-| `GET/POST /api/webhooks/whatsapp`                   | Meta handshake / raw HMAC events                  |
-| `GET /api/me`, `/api/overview`, `/api/integrations` | Bearer-authenticated profile/metrics/config state |
-| `GET/POST /api/data/:resource`                      | Allowlisted tenant reads / owner-only creates     |
-| `PATCH/DELETE /api/data/:resource/:id`              | Validated owner updates / explicit delete header  |
-| `POST /api/documents`                               | Multipart `file` + `mode`                         |
-| `POST /api/documents/:id/ask`                       | `{question}` with real document context           |
-| `PATCH /api/documents/:id/approval`                 | `{approved}` owner approval                       |
-| `GET /api/documents/:id/download`                   | Authorized signed URL                             |
-| `DELETE /api/documents/:id`                         | Delete storage and metadata with confirmation     |
-| `POST /api/conversations/:id/reply`                 | Queue manual WhatsApp response                    |
-| `POST /api/conversations/:id/stream`                | Owner personal playground, SSE over fetch         |
-| `POST /api/jobs/:id/retry`                          | Owner-only failed-job recovery                    |
-| `POST /api/account/phone/request`, `/verify`        | Owner OTP linking                                 |
-
-Server authenticates Bearer JWTs using Supabase `getUser`, checks database role, and pins all operations to the authenticated tenant. Browser mutations do not access Supabase tables directly. RLS allows only a tenant's own reads; no browser write policies are created. Service-role access is isolated to API/worker and RPCs are revoked from public/anon/authenticated roles. Limits, Helmet CSP/headers, CORS, field validation and explicit delete confirmation protect HTTP routes. Production forbids framing; development allows Arena preview frames.
-
-## 7. Verification
-
-```sh
+```bash
 npm run typecheck
 npm test
 npm run build
@@ -141,29 +342,80 @@ npm run test:browser
 npm run format:check
 ```
 
-The SQL tests run the actual migration in PGlite (embedded PostgreSQL), with minimal auth/storage/role stubs; this is not a replacement for testing hosted Supabase Auth, PostgREST and Storage. SDK-boundary tests simulate provider results to test safety/control flow, not to claim external integration success. Browser checks use bundled Linux Chromium and test no-credentials setup mode at desktop/mobile widths. Authenticated CRUD, real login/refresh/logout, live attachments and provider delivery still require a configured staging environment. See the full acceptance checklist in `VERIFICATION_REPORT.md`.
+These checks cover local application behavior. Hosted Supabase, live Claude requests, WhatsApp delivery and authenticated production workflows require external configuration and acceptance testing.
 
-## 8. Railway deployment preparation (not deployed)
+## ◈ Deployment
 
-A Docker multi-stage build includes only production dependencies in runtime and serves the built web dashboard from Express. Node runs as a non-root user. Docker is not available in this development environment, so the image must be built and tested before rollout.
+NOVA AI includes Railway deployment preparation.
 
-After your explicit authorization:
+The intended deployment consists of:
 
-1. Create Railway **API/web** and **worker** services from this repository. No Redis/extra queue service is required.
-2. API uses `railway.json`. Worker uses `railway.worker.json` as its config path (no HTTP health check/public domain). Run one replica of each initially.
-3. Provide the **public** `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` as build arguments/settings to the Docker build, and all server secrets as Railway runtime variables. The web bundle must be rebuilt when public settings change. Do not provide service-role secrets as build arguments.
-4. Set `NODE_ENV=production`, `APP_ORIGIN=https://your-dashboard-domain`, `TRUST_PROXY=true` only if Railway is the single trusted proxy, and the same integration credentials on API and worker. Railway supplies `PORT`; the server binds to `0.0.0.0`.
-5. Apply the migration yourself, create the initial Auth user, configure the business profile, register Meta's HTTPS webhook and approved template, verify your owner phone, then perform the live checklist.
-6. Configure budget alerts at your provider accounts, backups/PITR, monitoring and retention. The current worker is deliberately serial and unsuitable for high-volume/HA operation without additional ordering controls.
+| Service | Responsibility |
+|---|---|
+| API / Web | Express API and dashboard |
+| Worker | Background jobs and reminders |
+| Supabase | Database and private storage |
 
-No deployment, publish, account modification, template registration, purchase or paid API request was performed here.
+Docker image builds and live production deployment must be tested separately before launch.
 
-## Operational limitations and next steps
+## ◈ Current Development Status
 
-- Required live checks and approvals are outstanding. This workspace permits outbound package/GitHub hosts only; provider endpoints cannot be reached here even if credentials were supplied.
-- Add per-tenant spend quotas (not merely HTTP limits), distributed rate limiting for multiple API replicas, monitoring/alerts and privacy retention/export/deletion procedures before public launch. Logs/events/messages and files otherwise persist until explicitly deleted.
-- Harden public-upload parsing with process isolation and malware scanning; scan dependency updates regularly.
-- Add hosted Supabase/PostgREST integration tests and authenticated browser workflows; exercise worker crashes/restarts and template failure paths against a staging number.
-- Single-tenant-per-account permissions are owner/viewer, not a complete multi-seat organization/admin system. One business endpoint per account. No CRM pipeline or arbitrary automation.
-- API liveness does not imply worker/provider readiness. Integrations shows **configuration presence only**, never live health.
-- There is no guarantee of exactly-once external delivery or perfect prompt-injection resistance; authorization and scoped queries, not model instructions, enforce private data boundaries.
+| Phase | Description | Status |
+|---|---|---|
+| 01 | Project Foundation | Implemented |
+| 02 | Claude Integration | Implemented |
+| 03 | Database & Persistence | Implemented |
+| 04 | WhatsApp Integration | Implemented in workspace; live verification pending |
+| 05 | Agent & Tool Execution | Implemented in workspace; live verification pending |
+| 06 | Memory & Mode Isolation | Implemented in workspace; live verification pending |
+| 07 | Media & Documents | Implemented in workspace; provider verification pending |
+| 08 | Tasks & Reminders | Implemented in workspace; live verification pending |
+| 09 | Admin Dashboard | Implemented in workspace; hosted workflow verification pending |
+| 10 | Security & Deployment | Hardening and deployment verification pending |
+
+**Current release status: Implemented application with local verification — not production-certified.**
+
+For detailed evidence, limitations and remaining work, see:
+
+- `DEVELOPMENT_STATUS.md`
+- `VERIFICATION_REPORT.md`
+
+## ◈ Important Limitations
+
+Before public production use:
+
+- Complete hosted Supabase and provider acceptance tests.
+- Configure Meta templates and owner verification.
+- Add malware scanning and isolated document parsing.
+- Establish monitoring, backups and retention policies.
+- Configure spending limits and operational alerts.
+- Test worker recovery and external message delivery.
+
+Outbound delivery is at-least-once, not guaranteed exactly-once. Provider configuration alone does not establish live integration health.
+
+## ◈ Project Philosophy
+
+> Build useful intelligence, not another chatbot.
+>
+> Keep private data private.
+>
+> Automate responsibly.
+>
+> Make every interaction meaningful.
+
+---
+
+<p align="center">
+
+  **NOVA AI**
+
+  <br />
+
+  *Intelligence that works where you communicate.*
+
+  <br /><br />
+
+  <img src="https://img.shields.io/badge/Powered_by-Claude-39D98A?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Built_with-TypeScript-3178C6?style=for-the-badge" />
+
+</p>
